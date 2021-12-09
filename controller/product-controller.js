@@ -9,3 +9,13 @@ export const getProducts = async (request, response) => {
     console.log("Error: ", error);
   }
 };
+
+export const getProductById = async (request, response) => {
+  console.log();
+  try {
+    const product = await Product.findOne({ id: request.params.id });
+    response.json(product);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};

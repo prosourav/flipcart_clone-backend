@@ -18,7 +18,7 @@ export const userSignUp = async (request, response) => {
 export const userLogin = async (request, response) => {
   try {
     const user = await User.findOne({
-      username: request.body.username,
+      email: request.body.username,
       password: request.body.password,
     });
     if (user) {
@@ -28,7 +28,6 @@ export const userLogin = async (request, response) => {
     } else {
       return response.status(401).json("Invalid Login");
     }
-    response.status(200).json("user is successfully registered");
   } catch (error) {
     console.log(error);
   }
